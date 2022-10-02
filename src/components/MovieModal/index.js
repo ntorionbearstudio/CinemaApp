@@ -13,6 +13,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useFavorites } from '@/services/favoritesService';
 import { getMovie } from '@/services/moviesService';
 
+import { PaymentButton } from '../PaymentButton';
+
 export const MovieModal = ({ movieSlug, isVisible, closeModal }) => {
   const [mainMovie, setMainMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -110,6 +112,7 @@ export const MovieModal = ({ movieSlug, isVisible, closeModal }) => {
                 {mainMovie.synopsis}
               </Text>
             </ScrollView>
+            <PaymentButton />
           </>
         )}
       </Box>
