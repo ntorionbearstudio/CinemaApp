@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useAppState } from '@react-native-community/hooks';
 import { useFocusEffect } from '@react-navigation/native';
 
-import { useAccount } from '@/modules/account/account.service';
-
 export const navigationRef = React.createRef();
 
 export function navigate(name, params) {
@@ -29,16 +27,9 @@ export const useRefetchOnFocus = (refetch = () => {}, canRefetch = true) => {
 };
 
 export const useScreenFocus = () => {
-  const { refetch: refetchAccount } = useAccount();
   const currentAppState = useAppState();
   const previousAppStateRef = useRef(currentAppState);
   useEffect(() => {
-    if (
-      previousAppStateRef.current !== 'active' &&
-      currentAppState === 'active'
-    ) {
-      refetchAccount();
-    }
     previousAppStateRef.current = currentAppState;
-  }, [refetchAccount, currentAppState]);
+  }, [currentAppState]);
 };
