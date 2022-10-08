@@ -17,7 +17,6 @@ export const HomeScreen = () => {
     const [error, data] = await getMainMovie();
     if (!error && data) {
       setMainMovie(data[0]);
-      console.log({ data });
     }
 
     setIsLoading(false);
@@ -46,6 +45,7 @@ export const HomeScreen = () => {
                   }}
                   width="100%"
                   height={20}
+                  resizeMode="contain"
                   alt="logo"
                 />
               )}

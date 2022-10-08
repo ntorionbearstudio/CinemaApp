@@ -22,7 +22,7 @@ export const MoviesScreen = () => {
   const loadMovies = useCallback(async () => {
     setIsLoading(true);
 
-    const [error, data] = await getMovies(page);
+    const [error, data] = await getMovies();
     if (!error && data) {
       if (page === 0) {
         setMovies(data.slice(0, 10));
@@ -82,13 +82,23 @@ export const MoviesScreen = () => {
             renderItem={({ item }) => (
               <TouchableOpacity onPress={handleSelectMovie(item)}>
                 <Box bg={theme.colors.gray[800]} p={3} borderRadius={30}>
-                  <Image
-                    source={{ uri: item.posterPath.lg }}
-                    width={(width - 100) / 2}
-                    height={200}
-                    borderRadius={20}
-                    alt={item.alt_description || 'image description'}
-                  ></Image>
+                  {item?.posterPath?.lg ? (
+                    <Image
+                      source={{ uri: item?.posterPath?.lg }}
+                      width={(width - 100) / 2}
+                      height={200}
+                      borderRadius={20}
+                      alt={item.alt_description || 'image description'}
+                    ></Image>
+                  ) : (
+                    <Box
+                      width={(width - 100) / 2}
+                      height={200}
+                      borderRadius={20}
+                      bg={theme.colors.gray[700]}
+                    />
+                  )}
+
                   <Text
                     color="white"
                     fontWeight="bold"

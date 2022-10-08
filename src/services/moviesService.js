@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getMainMovie = async (page = 0) => {
+export const getMainMovie = async () => {
   try {
     const movieRes = await axios.get(
       'https://www.cinemaspathegaumont.com/api/featured?type=home&language=fr'
@@ -11,7 +11,7 @@ export const getMainMovie = async (page = 0) => {
   }
 };
 
-export const getMovies = async (page = 0) => {
+export const getMovies = async () => {
   try {
     const moviesRes = await axios.get(
       'https://www.cinemaspathegaumont.com/api/shows?language=fr'

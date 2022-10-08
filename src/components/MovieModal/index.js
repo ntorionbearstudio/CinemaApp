@@ -40,7 +40,6 @@ export const MovieModal = ({ movieSlug, isVisible, closeModal }) => {
     if (await isItemInFavorites(mainMovie)) {
       await removeItemFromFavorites(mainMovie);
     } else {
-      console.log('add item');
       await addItemToFavorites(mainMovie);
     }
 
@@ -112,7 +111,7 @@ export const MovieModal = ({ movieSlug, isVisible, closeModal }) => {
                 {mainMovie.synopsis}
               </Text>
             </ScrollView>
-            <PaymentButton />
+            <PaymentButton movieName={mainMovie.title} />
           </>
         )}
       </Box>

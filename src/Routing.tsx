@@ -8,20 +8,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { HomeScreen } from '@/modules/home/HomeScreen';
-import {
-  navigate,
-  navigationRef,
-  useScreenFocus,
-} from '@/utils/rootNavigation';
+import { navigationRef, useScreenFocus } from '@/utils/rootNavigation';
 
 import { FavsScreen } from './modules/favs/FavsScreen';
 import { MoviesScreen } from './modules/movies/MoviesScreen';
-
-if (__DEV__ && process.env.NODE_ENV !== 'test') {
-  const DevMenu = require('react-native-dev-menu');
-  DevMenu.addItem('Storybook', () => navigate('Storybook'));
-  DevMenu.addItem('Network helper', () => navigate('NetworkHelper'));
-}
 
 const Tabs = AnimatedTabBarNavigator();
 
