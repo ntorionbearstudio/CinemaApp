@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Box, Button, Flex, Image } from 'native-base';
-import { ImageBackground } from 'react-native';
+import { Box, Button, Flex, Icon, Image, Text } from 'native-base';
+import { ActivityIndicator, ImageBackground } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { MovieModal } from '@/components/MovieModal';
 import { getMainMovie } from '@/services/moviesService';
@@ -25,6 +26,14 @@ export const HomeScreen = () => {
   useEffect(() => {
     loadMovie();
   }, [loadMovie]);
+
+  if (isLoading) {
+    return (
+      <Box flex={1} justifyContent="center" alignItems="center">
+        <ActivityIndicator color="white" size="large" />
+      </Box>
+    );
+  }
 
   return (
     <Box flex={1}>
@@ -55,7 +64,17 @@ export const HomeScreen = () => {
               colorScheme="gray"
               onPress={() => setIsModalVisible(true)}
             >
-              Plus d'infos
+              <Box flexDir="row" alignItems="center">
+                <Icon
+                  as={MaterialCommunityIcons}
+                  name="ticket"
+                  color="white"
+                  size={6}
+                />
+                <Text color="white" ml={2}>
+                  Réserver maintenant
+                </Text>
+              </Box>
             </Button>
           </Flex>
         </ImageBackground>
