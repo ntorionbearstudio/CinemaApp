@@ -53,7 +53,7 @@ export const HomeScreen = () => {
                     uri: mainMovie.logo.lg,
                   }}
                   width="100%"
-                  height={20}
+                  height={200}
                   resizeMode="contain"
                   alt="logo"
                 />

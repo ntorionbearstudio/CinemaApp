@@ -23,7 +23,6 @@ const Routing = () => {
       <StatusBar barStyle="light-content" />
       <Tabs.Navigator
         initialRouteName="Home"
-        // default configuration from React Navigation
         tabBarOptions={{
           activeTintColor: theme.colors.gray[900],
           inactiveTintColor: theme.colors.gray[100],

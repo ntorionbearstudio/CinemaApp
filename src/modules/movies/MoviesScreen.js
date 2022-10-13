@@ -79,6 +79,7 @@ export const MoviesScreen = () => {
             }
             numColumns={2}
             onEndReached={loadNextPage}
+            keyExtractor={(item) => item.slug}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={handleSelectMovie(item)}>
                 <Box bg={theme.colors.gray[800]} p={3} borderRadius={30}>
@@ -113,7 +114,6 @@ export const MoviesScreen = () => {
             )}
             ItemSeparatorComponent={() => <Box m={2}></Box>}
             ListFooterComponent={() => <Box mb={5}></Box>}
-            keyExtractor={(item) => item.slug}
           />
         </Box>
       </SafeAreaView>
